@@ -1,6 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { faUsers, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Paper from "@mui/material/Paper";
-import { Button, Divider, IconButton } from "@mui/material";
+import { Button, Divider, IconButton, Typography } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -155,23 +158,34 @@ export default function Home() {
         <div
           style={{
             display: "flex",
-            padding: 5,
+            paddingRight: 5,
             justifyContent: "space-between",
           }}
         >
-          <h4 style={{ margin: 0 }}>{user?.displayName} </h4>
+          <h4 style={{ margin: 0 }}>
+            <strong>{user?.displayName}</strong>
+          </h4>
           <Button
-            color="secondary"
+            color="warning"
             onClick={() => {
               auth.signOut();
               navigate("/");
             }}
           >
-            Logout
+            <strong>
+              Deconnecter{"   "}
+              <FontAwesomeIcon icon={faSignOut} />
+            </strong>
           </Button>
         </div>
         <Divider />
-        All users
+        <br></br>
+        <Typography>
+          <strong>
+            <FontAwesomeIcon icon={faUsers} />
+            {"  "}Tous les utilisateurs
+          </strong>
+        </Typography>
         <div style={{ overflowY: "scroll" }}>
           <UsersComponent
             users={users}
@@ -200,25 +214,28 @@ export default function Home() {
                     margin: 2,
                     display: "flex",
                     flexDirection:
-                      user?.uid == messages.messageUserId
+                      user?.uid === messages.messageUserId
                         ? "row-reverse"
                         : "row",
                   }}
                 >
                   <span
                     style={{
-                      backgroundColor: "#BB8FCE",
+                      backgroundColor:
+                        user?.uid === messages.messageUserId
+                          ? "#2146EA"
+                          : "#C4483C",
                       padding: 6,
                       borderTopLeftRadius:
-                        user?.uid == messages.messageUserId ? 10 : 0,
+                        user?.uid === messages.messageUserId ? 10 : 0,
                       borderTopRightRadius:
-                        user?.uid == messages.messageUserId ? 0 : 10,
+                        user?.uid === messages.messageUserId ? 0 : 10,
                       borderBottomLeftRadius: 10,
                       borderBottomRightRadius: 10,
                       maxWidth: 400,
                       fontSize: 15,
                       textAlign:
-                        user?.uid == messages.messageUserId ? "right" : "left",
+                        user?.uid === messages.messageUserId ? "right" : "left",
                     }}
                   >
                     {messages.message}
@@ -227,14 +244,16 @@ export default function Home() {
               );
             })}
         </div>
-
+        <Divider />
+        <hr></hr>
         <div style={{ width: "100%", display: "flex", flex: 0.08 }}>
-          <input
+          <textarea
             value={chatMessage}
             onChange={(e) => setChatMessage(e.target.value)}
             style={input}
-            type="text"
-            placeholder="Type message..."
+            col={8}
+            rows={8}
+            placeholder="Ecrire message..."
           />
           <IconButton onClick={sendMessage}>
             <SendIcon style={{ margin: 10 }} />
@@ -276,7 +295,7 @@ const input = {
 };
 
 const messagesDiv = {
-  backgroundColor: "#FBEEE6",
+  backgroundColor: "#EE2CB0",
   padding: 5,
   display: "flex",
   flexDirection: "column",

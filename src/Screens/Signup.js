@@ -11,7 +11,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { auth, db } from "../Firebase";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { 
+  createUserWithEmailAndPassword, 
+  updateProfile,
+ } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 function Copyright(props) {
@@ -23,8 +26,8 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="#">
+        PROJET FIN D'ANNEE ENI
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -84,7 +87,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Créer un compte
           </Typography>
           <Box
             component="form"
@@ -96,7 +99,7 @@ export default function SignUp() {
               <Grid item xs={12}>
                 <TextField
                   autoComplete="given-name"
-                  name="firstName"
+                  name="Nom et prénoms"
                   required
                   fullWidth
                   id="firstName"
@@ -112,7 +115,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Addresse Email "
                   name="email"
                   autoComplete="email"
                   value={email}
@@ -124,7 +127,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Mot de passe"
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -139,12 +142,12 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              Créer
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/" variant="body2">
-                  Already have an account? Sign in
+                  Avez-vous déjà un compte? connexion
                 </Link>
               </Grid>
             </Grid>

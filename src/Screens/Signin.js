@@ -56,8 +56,8 @@ export default function SignIn() {
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
+          <Typography component="h2" variant="h4">
+            CONNEXION
           </Typography>
           <Box
             component="form"
@@ -70,7 +70,7 @@ export default function SignIn() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label=" Addresse Email"
               name="email"
               autoComplete="email"
               autoFocus
@@ -82,7 +82,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Mot de passe"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -91,7 +91,7 @@ export default function SignIn() {
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              label="Souvenir de moi"
             />
             <Button
               type="submit"
@@ -99,17 +99,17 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Se connecter
             </Button>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">
-                  Forgot password?
+                  Mot de passe oublié?
                 </Link>
               </Grid>
               <Grid item>
                 <Link href="/Signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Vous n'avez pas un compte? créer un compte"}
                 </Link>
               </Grid>
             </Grid>
